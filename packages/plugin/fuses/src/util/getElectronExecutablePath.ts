@@ -11,6 +11,6 @@ type GetElectronExecutablePathParams = {
 export function getElectronExecutablePath({ appName, basePath, platform }: GetElectronExecutablePathParams): string {
   return path.join(
     basePath,
-    ['darwin', 'mas'].includes(platform) ? path.join('MacOS', appName) : [appName, process.platform === 'win32' ? '.exe' : ''].join('')
+    ['darwin', 'mas'].includes(platform) ? path.join('MacOS', appName) : [appName, platform === 'win32' ? '.exe' : ''].join('')
   );
 }
